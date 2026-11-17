@@ -18,3 +18,29 @@ plt.show()
 sns.violinplot(x='sex', y='age', data=df, hue='survived', split=True)
 plt.title('Age Distribution by Sex and Survival')
 plt.show()
+----------------------------------------------------------------------------------------------------------------------------------
+
+SCALA
+spark-shell
+-----------------------------------
+import org.apache.spark.sql.SparkSession
+-----------------------------------------------
+val spark = SparkSession.builder()
+    .appName("Simple Spark Program")
+    .master("local[*]")
+    .getOrCreate()
+-----------------------------------------------
+val data = Seq(
+    ("Viraj", 20),
+    ("Rahul", 21),
+    ("Aman", 22)
+)
+-------------------------------------------------
+import spark.implicits._
+-------------------------------------------
+val df = data.toDF("Name", "Age")
+------------------------------------------
+df.show()
+------------------------------------------
+spark.stop()
+
