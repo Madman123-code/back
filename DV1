@@ -1,0 +1,20 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import warnings
+
+warnings.filterwarnings('ignore')
+%matplotlib inline
+
+df = sns.load_dataset ('titanic')
+df.head()
+
+df.tail()
+
+sns.boxplot(x='sex', y='age', data=df, hue='survived')
+plt.title('Age Distribution by Sex and Survival')
+plt.show()
+
+sns.violinplot(x='sex', y='age', data=df, hue='survived', split=True)
+plt.title('Age Distribution by Sex and Survival')
+plt.show()
